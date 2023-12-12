@@ -9,7 +9,7 @@ const CONVERSATIONS_KEY = "conversations";
 const CONTACTS_KEY = "contacts";
 
 function Sidebar({ id }) {
-	const [activeKey, setActiveKey] = useState(CONTACTS_KEY);
+	const [activeKey, setActiveKey] = useState(CONVERSATIONS_KEY);
     const [modalOpen, setModalOpen] = useState(false);
     const [closeModal, setCloseModal] = useState(false);
     
@@ -47,7 +47,7 @@ function Sidebar({ id }) {
 
 			<Modal show={modalOpen} onHide={()=>{setModalOpen(false)}} >
 				{conversationOpen ? (
-					<NewConversationModal  closeModal={closeModal} />
+					<NewConversationModal setModalOpen={setModalOpen} closeModal={closeModal} />
 				) : (
 					<NewContactModal setModalOpen={setModalOpen} closeModal={closeModal} />
 				)}
